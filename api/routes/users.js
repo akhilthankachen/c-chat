@@ -32,7 +32,7 @@ router.post('/authenticate', (req,res,next) => {
         throw err;
     }
     if(!user){
-        return res.json({success: false, msg:"User not found"});
+        return res.json({success: "false", msg:"User not found"});
     }
 
     if (password){
@@ -57,7 +57,7 @@ router.post('/authenticate', (req,res,next) => {
 //Profile
 
 router.get('/chat',passport.authenticate('jwt', {session: false}), (req,res,next) => {
-  res.json({user: req.user});
+  res.json({success: true, user: req.user});
 });
 
 module.exports = router;

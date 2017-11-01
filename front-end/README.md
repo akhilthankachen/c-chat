@@ -1,6 +1,6 @@
-# cchat
+# front-end
 
-> cchat front-end
+> front-end vue
 
 ## Build Setup
 

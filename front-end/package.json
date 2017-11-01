@@ -1,8 +1,8 @@
 {
-  "name": "cchat",
+  "name": "front-end",
   "version": "1.0.0",
-  "description": "cchat front-end",
-  "author": "akhil thankachen",
+  "description": "front-end vue",
+  "author": "akhil thankachen <akhilthankachen1234@gmail.com>",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",
@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "vue": "^2.5.2",
+    "vue-resource": "^1.3.4",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {
