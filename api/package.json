@@ -1,0 +1,22 @@
+{
+  "name": "cchat",
+  "version": "1.0.0",
+  "description": "cchat backend",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "bcryptjs": "*",
+    "body-parser": "*",
+    "cors": "*",
+    "express": "*",
+    "jsonwebtoken": "^7.3.0",
+    "mongoose": "*",
+    "nodemon": "^1.12.1",
+    "passport": "^0.3.2",
+    "passport-jwt": "^2.2.1"
+  },
+  "author": "akhil thankachen",
+  "license": "ISC"
+}
