@@ -1,7 +1,7 @@
 <template>
   <div class="chat container">
-    <login v-show="!registered" v-on:reg="changeReg()"></login>
-    <socket v-show="registered"></socket>
+    <login v-if="!registered" v-on:reg="changeReg()"></login>
+    <socket v-else-if="registered"></socket>
   </div>
 </template>
 
@@ -26,7 +26,28 @@ export default {
     }
   },
   created: function(){
-    alert('hello');
+    var json = window.localStorage.getItem('token');
+    if(json){
+      console.log('i was here');
+    json = JSON.parse(json);
+    const token = json.token;
+    if(json.success == true){
+      this.$http.get('http://localhost:3000/users/chat', {
+        headers: {
+          'Authorization': token,
+          'Accept': 'application/json'
+        }
+      }).then(function(response){
+        json = JSON.parse(response.bodyText);
+        if(json.success == true){
+          this.registered = true;
+          window.localStorage.setItem('user', JSON.stringify(json.user));
+        }else{
+          this.registered = false;
+        }
+      });
+    }
+    }
   }
   
 }

@@ -1,7 +1,7 @@
 <template>
         <div class="socket container">
-          Socket
-          <h1>{{jsondata}}</h1>
+            <h1>Socket</h1>
+            <h2>welcome {{user.username}}</h2>
         </div>
       </template>
       
@@ -10,11 +10,12 @@
         name: 'socket',
         data () {
           return {
-              jsondata: ""
+              user: {}
           }
         },
-        created: function(){
-            this.jsondata = window.localStorage.getItem('data');
+        created:function(){
+            this.user = window.localStorage.getItem('user');
+            this.user = JSON.parse(this.user);
         }
       }
       </script>
