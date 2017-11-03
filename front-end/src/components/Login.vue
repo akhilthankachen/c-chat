@@ -55,7 +55,7 @@
             }else{
             if(this.password == "second"){var pass = true;}else{var pass = false;}
             console.log(pass+'eeeeeS');
-            this.$http.post('http://46.101.100.195:8080/users/register',{
+            this.$http.post('http://46.101.100.195:80/users/register',{
                 username: this.username
             }).then(function(data){
                 this.jsonData = JSON.parse(data.bodyText);
