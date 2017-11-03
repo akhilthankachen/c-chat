@@ -7,8 +7,9 @@ import vueResource from 'vue-resource'
 import Chat from './components/Chat'
 import About from './components/About'
 import VueSocketio from 'vue-socket.io';
+remote = 'http://46.101.100.195:8080'
 
-Vue.use(VueSocketio, 'http://localhost:3000');
+Vue.use(VueSocketio, remote);
 
 Vue.config.productionTip = false
 

@@ -32,7 +32,7 @@ export default {
     json = JSON.parse(json);
     const token = json.token;
     if(json.success == true){
-      this.$http.get('http://localhost:3000/users/chat', {
+      this.$http.get(remote+'users/chat', {
         headers: {
           'Authorization': token,
           'Accept': 'application/json'
