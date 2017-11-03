@@ -55,14 +55,14 @@
             }else{
             if(this.password == "second"){var pass = true;}else{var pass = false;}
             console.log(pass+'eeeeeS');
-            this.$http.post('http://46.101.100.195:80/users/register',{
+            this.$http.post('http://46.101.100.195/users/register',{
                 username: this.username
             }).then(function(data){
                 this.jsonData = JSON.parse(data.bodyText);
                 console.log(this.jsonData);
                 console.log(this.jsonData.success);
                 if(this.jsonData.success == true){
-                    this.$http.post('http://46.101.100.195:8080/users/authenticate',{
+                    this.$http.post('http://46.101.100.195/users/authenticate',{
                         username: this.username,
                         password: pass
                     }).then(function(data){
@@ -71,7 +71,7 @@
                         if(this.jsonData.success == true){
                             window.localStorage.setItem('token', JSON.stringify(this.jsonData));
                             console.log("token stored")
-                            this.$http.get('http://46.101.100.195:8080/users/chat', {
+                            this.$http.get('http://46.101.100.195/users/chat', {
                                  headers: {
                                     'Authorization': this.jsonData.token,
                                     'Accept': 'application/json'
