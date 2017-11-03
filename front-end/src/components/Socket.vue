@@ -43,7 +43,8 @@
               textarea: "",
               pair: null,
               pos: null,
-              posUsername: null
+              posUsername: null,
+              remote: 'http://localhost:4000/'
           }
         },
         sockets:{
@@ -57,7 +58,7 @@
                      var message;
                      message = '<div class = "chat-message">'+ data[x].name+': '+data[x].message+'</div>';
                      this.messages.push(message);
-                     console.log('i am here');
+                     console.log('i amxxxx here');
                     }
                 }
              },
