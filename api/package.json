@@ -15,7 +15,8 @@
     "mongoose": "*",
     "nodemon": "^1.12.1",
     "passport": "^0.3.2",
-    "passport-jwt": "^2.2.1"
+    "passport-jwt": "^2.2.1",
+    "socket.io": "^2.0.4"
   },
   "author": "akhil thankachen",
   "license": "ISC"

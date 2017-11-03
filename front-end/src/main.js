@@ -6,6 +6,9 @@ import VueRouter from 'vue-router'
 import vueResource from 'vue-resource'
 import Chat from './components/Chat'
 import About from './components/About'
+import VueSocketio from 'vue-socket.io';
+
+Vue.use(VueSocketio, 'http://localhost:3000');
 
 Vue.config.productionTip = false
 
@@ -35,7 +38,7 @@ new Vue({
                   <span class="icon-bar"></span>
                   <span class="icon-bar"></span>
               </button>
-              <a id="brand" class="navbar-brand" href="#">Project name</a>
+              <a id="brand" class="navbar-brand" href="#">C-CHAT</a>
           </div>
           <div id="navbar" class="collapse navbar-collapse">
               <ul class="nav navbar-nav">
@@ -49,3 +52,4 @@ new Vue({
     </div> 
   `
 }).$mount('#app')
+
