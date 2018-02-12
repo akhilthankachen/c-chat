@@ -33,7 +33,7 @@ export default {
     json = JSON.parse(json);
     const token = json.token;
     if(json.success == true){
-      this.$http.get('http://46.101.100.195:8080/users/chat', {
+      this.$http.get('http://localhost:8080/users/chat', {
         headers: {
           'Authorization': token,
           'Accept': 'application/json'
@@ -50,7 +50,7 @@ export default {
     }
     }
   }
-  
+
 }
 </script>
 

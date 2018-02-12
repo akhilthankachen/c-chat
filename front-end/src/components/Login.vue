@@ -33,7 +33,7 @@
         </div>
     </div>
   </template>
-  
+
   <script>
 
   export default {
@@ -55,14 +55,14 @@
             }else{
             if(this.password == "second"){var pass = true;}else{var pass = false;}
             console.log(pass+'eeeeeS');
-            this.$http.post('http://46.101.100.195:8080/users/register',{
+            this.$http.post('http://localhost:8080/users/register',{
                 username: this.username
             }).then(function(data){
                 this.jsonData = JSON.parse(data.bodyText);
                 console.log(this.jsonData);
                 console.log(this.jsonData.success);
                 if(this.jsonData.success == true){
-                    this.$http.post('http://46.101.100.195:8080/users/authenticate',{
+                    this.$http.post('http://localhost:8080/users/authenticate',{
                         username: this.username,
                         password: pass
                     }).then(function(data){
@@ -71,7 +71,7 @@
                         if(this.jsonData.success == true){
                             window.localStorage.setItem('token', JSON.stringify(this.jsonData));
                             console.log("token stored")
-                            this.$http.get('http://46.101.100.195:8080/users/chat', {
+                            this.$http.get('http://localhost:8080/users/chat', {
                                  headers: {
                                     'Authorization': this.jsonData.token,
                                     'Accept': 'application/json'
@@ -82,14 +82,14 @@
                                      window.localStorage.setItem('user', JSON.stringify(this.jsonData.user));
                                      this.$emit('reg');
                                 }else{
-                                    this.error = "User cant be registered"; 
+                                    this.error = "User cant be registered";
                                 }
                              });
                         }else{
                             this.username = "";
                             this.error = "User cant be registered";
                         }
-                    });                   
+                    });
                 }else{
                 }
             });
@@ -98,7 +98,7 @@
     }
   }
   </script>
-  
+
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
       #login-forum{
@@ -138,4 +138,3 @@
           }
       }
   </style>
-  
