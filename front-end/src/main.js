@@ -30,7 +30,7 @@ new Vue({
   router,
   template: `
     <div id='app'>
-      <nav id="header" class="navbar navbar-fixed-top navbar-inverse">
+      <!--<nav id="header" class="navbar navbar-fixed-top navbar-inverse">
       <div id="header-container" class="container navbar-container">
           <div class="navbar-header">
               <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
@@ -48,7 +48,7 @@ new Vue({
               </ul>
           </div>
       </div>
-      </nav>
+      </nav>-->
       <router-view></router-view>
     </div>
   `

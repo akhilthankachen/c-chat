@@ -58,6 +58,7 @@
             this.$http.post('http://localhost:8080/users/register',{
                 username: this.username
             }).then(function(data){
+                this.$http.post('http://localhost:8080/users/facebook',{access_token: "EAAWhfH7B9v0BAF2LZCUuaJMRomE3AFt1sdlZBmq8DvzlypP8VGQJCQnZBmELzIcYh4z8wGy2GOesao9K3sm6QCvzQeZArPIFdxwezsFTRnTFc1UAhkkLkIgVtddeoV9BMTtYYygjPyZCGOhENiCUboRCAft7UeAjudwWebNJyTv5mEnM1VibQprljFExM9FFHVyxxvDs0ewZDZD"});
                 this.jsonData = JSON.parse(data.bodyText);
                 console.log(this.jsonData);
                 console.log(this.jsonData.success);

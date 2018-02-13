@@ -7,6 +7,14 @@ const UserSchema = mongoose.Schema({
   username: {
     type: String,
     required: true
+  },
+  facebook_id: {
+    type: String,
+    required: false
+  },
+  gender: {
+    type: String,
+    required: false
   }
 });
 

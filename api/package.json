@@ -15,6 +15,8 @@
     "mongoose": "*",
     "nodemon": "^1.12.1",
     "passport": "^0.3.2",
+    "passport-facebook": "^2.1.1",
+    "passport-facebook-token": "^3.3.0",
     "passport-jwt": "^2.2.1",
     "socket.io": "^2.0.4"
   },
