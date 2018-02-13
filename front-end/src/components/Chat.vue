@@ -18,7 +18,7 @@ export default {
   data () {
     return {
       registered: false,
-      remote: 'http://localhost:4000/'
+      remote: 'http://139.59.95.91:4000/'
     }
   },
   methods: {
@@ -33,7 +33,7 @@ export default {
     json = JSON.parse(json);
     const token = json.token;
     if(json.success == true){
-      this.$http.get('http://localhost:8080/users/chat', {
+      this.$http.get('http://139.59.95.91:80/users/chat', {
         headers: {
           'Authorization': token,
           'Accept': 'application/json'

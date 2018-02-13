@@ -9,7 +9,7 @@ import About from './components/About'
 import VueSocketio from 'vue-socket.io';
 var remote = 'http://localhost:4000'
 
-Vue.use(VueSocketio, 'http://localhost:8080');
+Vue.use(VueSocketio, 'http://139.59.95.91:80');
 
 Vue.config.productionTip = false
 

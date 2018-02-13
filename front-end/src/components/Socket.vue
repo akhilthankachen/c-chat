@@ -34,7 +34,7 @@
               pair: null,
               pos: null,
               posUsername: null,
-              remote: 'http://localhost:4000/'
+              remote: 'http://139.59.95.91:80/'
           }
         },
         sockets:{

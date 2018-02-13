@@ -30,10 +30,10 @@ findStranger = function (pos){
       console.log('emitted '+posTemp);
       user[posTemp].socket.emit('connectedPair',{pos_a:pos,pos_b:posTemp,posUsername:user[pos].username,posGender:user[pos].gender});
       console.log('emitted '+pos);}
-  
+
 }
 
-const port = 8080;
+const port = 80;
 
 //connect to databse
 mongoose.connect(config.database);

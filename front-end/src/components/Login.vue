@@ -36,7 +36,7 @@
           error: "",
           password :"",
           gender: "",
-          remote: 'http://localhost:4000/'
+          remote: 'http://139.59.95.91:80/'
 
       }
     },
@@ -47,7 +47,7 @@
             }else{
             var pass = true;
             console.log(pass+'eeeeeS');
-            this.$http.post('http://localhost:8080/users/register',{
+            this.$http.post('http://139.59.95.91:80/users/register',{
                 username: this.username,
                 gender: this.gender
             }).then(function(data){
@@ -55,7 +55,7 @@
                 console.log(this.jsonData);
                 console.log(this.jsonData.success);
                 if(this.jsonData.success == true){
-                    this.$http.post('http://localhost:8080/users/authenticate',{
+                    this.$http.post('http://139.59.95.91:80/users/authenticate',{
                         username: this.username,
                         password: pass
                     }).then(function(data){
@@ -64,7 +64,7 @@
                         if(this.jsonData.success == true){
                             window.localStorage.setItem('token', JSON.stringify(this.jsonData));
                             console.log("token stored")
-                            this.$http.get('http://localhost:8080/users/chat', {
+                            this.$http.get('http://139.59.95.91:80/users/chat', {
                                  headers: {
                                     'Authorization': this.jsonData.token,
                                     'Accept': 'application/json'
