@@ -90,6 +90,7 @@
                 console.log('hello brother');
                 this.$socket.emit('findStranger', this.user.username);
                 this.setStatus("connecting....");
+                this.messages = [];
             },
             clearBtn: function(){
                 this.messages=[];
@@ -136,5 +137,8 @@
           }
           .message-box{
           width:50px;
+          }
+          .card-block{
+          overflow:scroll;
           }
       </style>
