@@ -1,17 +1,9 @@
 <template>
-    <div class="login container">
-        <div class="container-fluid">
-            <div class="row">
-                <div class="col-lg-6 com-md-6 col-sm-12 col-xs-12">
-
-                </div>
-                 <div class="col-lg-6 com-md-6 col-sm-12 col-xs-12">
                      <div class="" id="login-forum">
-                         <div id="opacityHigh" style="opacity:100%;">
-                             <h2>Choose yur NickName</h2>
+                        <img src="static/logo.png">
                              <br>
-                        <input v-model="username" type="text" name="lastname" alt="Nick name">
-                        <div id="checkboxes">
+                        <input v-model="username" type="text" name="lastname" alt="Nick name" placeholder="nick name">
+                        <div id="checkboxes" style = "display:none">
                             <h2>Q. which year won last sargam</h2>
                             <br>
                             <label>1st</label>
@@ -24,14 +16,13 @@
                             <input type="radio" value="fourth" v-model="password">
                         </div>
                         <br>
+                        <select name="gender">
+  <option value="male" v-model="gender">male</option>
+  <option value="female" v-model="gender">female</option>
+</select>
                         <button v-on:click.prevent="submit">Lets Go</button>
                     </div>
-                    </div>
-                </div>
 
-            </div>
-        </div>
-    </div>
   </template>
 
   <script>
@@ -44,6 +35,7 @@
           jsonData: {},
           error: "",
           password :"",
+          gender: "",
           remote: 'http://localhost:4000/'
 
       }
@@ -53,12 +45,12 @@
             if(this.username === "" || this.password === []){
                 this.error = "Enter user name or password";
             }else{
-            if(this.password == "second"){var pass = true;}else{var pass = false;}
+            var pass = true;
             console.log(pass+'eeeeeS');
             this.$http.post('http://localhost:8080/users/register',{
-                username: this.username
+                username: this.username,
+                gender: this.gender
             }).then(function(data){
-                this.$http.post('http://localhost:8080/users/facebook',{access_token: "EAAWhfH7B9v0BAF2LZCUuaJMRomE3AFt1sdlZBmq8DvzlypP8VGQJCQnZBmELzIcYh4z8wGy2GOesao9K3sm6QCvzQeZArPIFdxwezsFTRnTFc1UAhkkLkIgVtddeoV9BMTtYYygjPyZCGOhENiCUboRCAft7UeAjudwWebNJyTv5mEnM1VibQprljFExM9FFHVyxxvDs0ewZDZD"});
                 this.jsonData = JSON.parse(data.bodyText);
                 console.log(this.jsonData);
                 console.log(this.jsonData.success);
@@ -103,24 +95,34 @@
   <!-- Add "scoped" attribute to limit CSS to this component only -->
   <style scoped>
       #login-forum{
-          margin-top: 125px;
-          padding-top:90px;
-          padding-left:50px;
-          margin-bottom: auto;
-          margin-left: 0px;
-          margin-right: 0px;
           height:400px;
-          background-color:rgba(0, 0, 0, 0.5);
-          border-radius: 25px;
-          border: 2px solid white;
-          color:rgb(253, 253, 255);
+          color:black;
 
       }
-      #opacityHigh{
-          opacity:1.0;
+      #login-forum img{
+      width:400px;
+      height:auto;
+      margin-left:auto;
+      margin-right:auto;
+      display:block;
       }
       #login-forum button{
-          background-color: grey;
+      margin-left:auto;
+      margin-right:auto;
+      display:block;
+      }
+      #login-forum input{
+      margin-left:auto;
+      margin-right:auto;
+      display:block;
+      }
+      #login-forum select{
+      margin-left:auto;
+      margin-right:auto;
+      display:block;
+      margin-bottom:10px;
+      }
+      #login-forum button{
           color:black;
       }
       #login-forum input{
@@ -136,6 +138,13 @@
           }
           #login-forum h2{
             font-size: 28px;
+          }
+          #login-forum img{
+          width:260px;
+          height:auto;
+          margin-left:auto;
+          margin-right:auto;
+          display:block;
           }
       }
   </style>

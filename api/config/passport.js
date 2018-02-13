@@ -21,41 +21,4 @@ module.exports = function(passport){
         }
     });
   }));
-
-  passport.use('facebookToken', new facebookTokenStrategy({
-    clientID:'1584930958210813',
-    clientSecret: '0acd82d8eea81220ef97a3799e71938d',
-    profileFields: ['id', 'displayName', 'gender']
-  }, (accessToken, refreshToken, profile, done) =>{
-      try{
-        console.log('profile', profile);
-        console.log('accessToken', accessToken);
-        console.log('refreshToken', refreshToken);
-
-        User.findOne({"facebook_id":profile.id}, (err,user)=>{
-          if(err){
-            console.log('user not found');
-          }
-          if(user){
-            return done(null ,user);
-          }
-        });
-        const newUser = new User({
-          username: profile.displayName,
-          facebook_id: profile.id,
-          gender: profile.gender
-        });
-
-        User.addUser(newUser, (err, user) => {
-          if(err){
-            console.log('user not registered');
-          }else{
-            console.log('user saved');
-            return done(null ,user);
-          }
-        });
-      }catch(error){
-        done(error, false,error.message);
-      }
-  }));
 }

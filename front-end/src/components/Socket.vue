@@ -1,36 +1,26 @@
 <template>
-        <div class="socket container-fluid">
-            <div class="container-fluid back-color">
-                    <div class="row">
-                      <div class="col-md-6 offset-md-3 col-sm-12">
-                          
-                        <h1 class="text-center">
-                            Cchat
-                        </h1>
+
+                      <div class="chat">
+                      <h4 id="status-bottom">{{ status }}</h4>
                         <div id="status"></div>
                         <div id="pair"></div>
                         <div id="chat">
                           <br>
                           <div class="card">
-                                <div class="container-fluid">
+
                             <div id="messages" class="card-block">
                                 <div v-for="message in messages" v-html="message"></div>
                             </div>
-                            </div>
                           </div>
                           <br>
-                          <div class = "container-fluid"><textarea v-model="textarea" id="textarea" class="form-control float-left" placeholder="Enter message ...."></textarea><button id="send" v-on:click="sendData" class="btn btn-danger float-right">SEND</button></div>
-                          <div class = "container-fluid bottom-buttons">
+                          <textarea v-model="textarea" id="textarea" class="message-box" placeholder="Enter message ...."></textarea><button id="send" v-on:click="sendData" class="btn btn-danger float-right">SEND</button>
                           <button id="clear" v-on:click="clearBtn" class="btn btn-danger">Clear</button>
                           <button id="stranger" v-on:click="strangeBtn" class="btn btn-danger">find a random stranger</button>
-                            <h4 id="status-bottom">{{ status }}</h4></div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-        </div>
+                            </div>
+                            </div>
+
       </template>
-      
+
       <script>
 
       export default {
@@ -72,7 +62,8 @@
                 this.pair = data.pos_a;
                 this.pos = data.pos_b;
                 this.posUsername = data.posUsername;
-                this.setStatus("connected with "+this.posUsername);
+                if(this.user.username === this.posUsername){this.setStatus("connected with yourself");}else{
+                this.setStatus("connected with "+this.posUsername);}
              }
         },
         created:function(){
@@ -98,6 +89,7 @@
             strangeBtn: function(){
                 console.log('hello brother');
                 this.$socket.emit('findStranger', this.user.username);
+                this.setStatus("connecting....");
             },
             clearBtn: function(){
                 this.messages=[];
@@ -105,19 +97,12 @@
         }
       }
       </script>
-      
+
       <!-- Add "scoped" attribute to limit CSS to this component only -->
       <style scoped>
-          #messages{
-              height: 300px;
-              border-radius: 25px;
-          border: 2px solid white;
-          }
-          .socket{
-              margin-top:20px;
-          }
+
           #textarea{
-              width: 85%;
+              width: 75%;
               float: left;
               height: 34px;
           }
@@ -130,14 +115,26 @@
           #status-bottom{
               float: right;
           }
-          .back-color{
-              background-color: rgb(248, 173, 88);
-              height: 550px;
-              margin-right: 0px;
-          }
+
           .chat-message{
               background-color:white;
               height:10px;
           }
+          #chat{
+          height:100%;
+          border:1px solid grey;
+          }
+          #messages{
+          height:280px;
+          }
+          .chat{
+          padding-top:0px;
+          margin-top:0px;
+          }
+          .chat.container{
+          padding-top:0px;
+          }
+          .message-box{
+          width:50px;
+          }
       </style>
-      

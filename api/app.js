@@ -26,11 +26,11 @@ findStranger = function (pos){
     console.log('i am on pos 0 ' + user[pos].username);
   }else{
       console.log('i am swapping pair who is behind me ' + user[posTemp].username);
-      user[pos].socket.emit('connectedPair',{pos_a:posTemp,pos_b:pos,posUsername:user[posTemp].username});
+      user[pos].socket.emit('connectedPair',{pos_a:posTemp,pos_b:pos,posUsername:user[posTemp].username,posGender:user[posTemp].gender});
       console.log('emitted '+posTemp);
-      user[posTemp].socket.emit('connectedPair',{pos_a:pos,pos_b:posTemp,posUsername:user[pos].username});
-      console.log('emitted '+pos);
-  }
+      user[posTemp].socket.emit('connectedPair',{pos_a:pos,pos_b:posTemp,posUsername:user[pos].username,posGender:user[pos].gender});
+      console.log('emitted '+pos);}
+  
 }
 
 const port = 8080;

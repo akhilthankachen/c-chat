@@ -9,7 +9,8 @@ const config = require('../config/database');
 
 router.post('/register', (req,res,next) => {
   let newUser = new User({
-    username: req.body.username
+    username: req.body.username,
+    gender: req.body.gender
   });
 
   User.addUser(newUser, (err, user) => {
@@ -45,7 +46,8 @@ router.post('/authenticate', (req,res,next) => {
         token: 'JWT '+token,
         user: {
             id: user._id,
-            username: user.username
+            username: user.username,
+            gender: user.gender
             }
         });
     }else{
@@ -55,10 +57,6 @@ router.post('/authenticate', (req,res,next) => {
 });
 
 //Profile
-router.post('/facebook', passport.authenticate('facebookToken', {session:false}),(req,res,next)=>{
-  console.log('got here');
-  console.log('req.user',req.user);
-});
 
 router.get('/chat',passport.authenticate('jwt', {session: false}), (req,res,next) => {
   res.json({success: true, user: req.user});
